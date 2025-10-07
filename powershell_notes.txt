@@ -1,0 +1,38 @@
+1-Command Nomenclature: 
+    verb + noun :
+        for examples: 
+            verb: get,remove,set,disable
+            noun: service,mailbox,process,aduser
+    Every parameter in powershell is start with "-"
+    for examples: get-service -displayname
+    provide is the list of running services:
+        get-help get-service or get-help *service*
+        to check the examples:
+            get-help get-service -examples
+        Get-Service | Where-Object {$_.Status -eq "Running"}
+        Get-ADUser -identity administrator -Properties *
+
+    Note: Support if your running on an environment where internet is not accessible, you can downlod the help from the internet and save it to the folder same as below:
+        Save-Help -DestinationPath "C:\HelpFiles"
+        or
+        Save-Help -DestinationPath "C:\HelpRepo" -Module ActiveDirectory
+        create the folder HelpFiles first.
+        On the offline machine
+        Update-Help -SourcePath "C:\HelpFiles"
+        Update-Help -SourcePath "C:\HelpRepo" -Module ActiveDirectory -Force
+
+2Pipeline in powershell:
+    Pilpeline is used to join two commands basically.
+        get-service bits | start-service
+        to select the coulumn :
+        get-service | Select-Object displayname,status
+        get-service bits | Select-Object displayname,status
+        to get the output in proper format:
+            get-service | Select-Object displayname,status | Format-Table -AutoSize
+        to get the ouput in txt fomat:
+            get-service | Select-Object displayname,status | Format-Table -AutoSize |Out-File c:\file.txt -Append
+
+3-
+
+
+
