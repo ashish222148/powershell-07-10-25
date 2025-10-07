@@ -21,7 +21,7 @@
         Update-Help -SourcePath "C:\HelpFiles"
         Update-Help -SourcePath "C:\HelpRepo" -Module ActiveDirectory -Force
 
-2Pipeline in powershell:
+2-Pipeline in powershell:
     Pilpeline is used to join two commands basically.
         get-service bits | start-service
         to select the coulumn :
